@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //Desenvolva um programa que receba 10 números inteiros e os 
+    //grava em uma lista. Em seguida o programa deve encontrar a primeira posição do maior elemento da lista e exibir esta posição .
+    
+        const nroAltoyBajoArray = (arr = undefined) => {
+               if(arr === undefined) return console.warn('No ingresaste ningún valor')
+               if(!(arr instanceof Array)) return console.error(`El valor ${arr} NO es un Array`)
+               if(arr.length === 0) return console.warn('El array no puede estar vacío!')
+               
+               for(let i of arr){
+				   if(!(Number.isInteger(i))) return console.error(`El valor ${i} NO es un Número`)
+               }
+               return console.info(`Valor mínimo: ${Math.min(...arr)}\nValor máximo: ${Math.max(...arr)}`)             
+          }
+          
+            nroAltoyBajoArray([-100,5,7,8,9,10])
+		    nroAltoyBajoArray(['hola',2])
+		    nroAltoyBajoArray('')
+		    nroAltoyBajoArray({})
+		    nroAltoyBajoArray()
+
+
+    </script>
+</body>
+</html>

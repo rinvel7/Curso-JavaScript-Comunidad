@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+    .submit {
+        background-color: darkgray;
+        border: none;
+        font-weight: bold;
+        padding: 6px 20px;
+        text-align: center;
+        font-size: 16px;
+        margin: 4px 4px;
+        box-shadow: 3px 3px 3px black;
+        position: center;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 60%;
+    }    
+    
+    .texto {
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        background-color: white;
+        padding: 4px;
+        text-align: left;
+        font-size: 16px;
+        margin: 4px 4px;
+        box-shadow: 2px 2px 2px black;
+    }
+    .numero {
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        background-color: white;
+        padding: 4px;
+        position: center;
+        text-align: left;
+        font-size: 16px;
+        margin: 4px 4px;
+        box-shadow: 2px 2px 2px black;
+    }
+
+
+    form {
+        border: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        background-color: cadetblue;
+        position: center;
+        padding: 10px 10px;
+        width: 60%;
+    }
+    </style>
+
+<script>
+    function validateForm() {
+        let name = document.forms["ejerForm"]["name"].value;
+        if (name === "") {
+        alert("Todos os campos são obrigatórios");
+        return false;
+        }
+
+        let telefone = document.forms["ejerForm"]["telefone"].value;
+        if (telefone === "") {
+        alert("Todos os campos são obrigatórios");
+        return false;
+        }
+
+        let data = document.forms["ejerForm"]["data"].value;
+        if (data === "") {
+        alert("Todos os campos são obrigatórios");
+        return false;
+        }
+
+        let cpf = document.forms["ejerForm"]["cpf"].value;
+        if (cpf === "") {
+        alert("Todos os campos são obrigatórios");
+        return false;
+        }
+
+        return validaCPF(document.forms ["ejerForm"]["cpf"].value);
+    }
+
+    function validaCPF(cpf) {
+    var Soma;
+    var Resto;
+    Soma = 0;
+  if (cpf == "00000000000") return false;
+
+  for (i=1; i<=9; i++) Soma = Soma + parseInt(cpf.substring(i-1, i)) * (11 - i);
+  Resto = (Soma * 10) % 11;
+
+    if ((Resto == 10) || (Resto == 11))  Resto = 0;
+    if (Resto != parseInt(strCPF.substring(9, 10)) ) return false;
+
+  Soma = 0;
+    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(cpf.substring(i-1, i)) * (12 - i);
+    Resto = (Soma * 10) % 11;
+
+    if ((Resto == 10) || (Resto == 11))  Resto = 0;
+    if (Resto != parseInt(cpf.substring(10, 11) ) ) return false;
+    return true;
+}
+let cpf = "12345678909";
+alert(validaCPF(cpf));
+    
+</script>
+
+
+ <form name="ejerForm"  
+ action="mailto:a@a.com" 
+ onsubmit="return validateForm()" 
+ method="post">
+        Nome: <input class="texto" type="text" name= "nome"><br>
+        Data de Nascemento: <input class="numero" type="number" name="data"><br>
+        telefone: <input class="numero" type="number" name="telefone"><br>
+        CPF <input  class="numero" type="nuemro" name= "cpf" ><br>
+        <input class="submit" type="submit" value="continuar"><br>
+</form> 
+</body>
+</html>

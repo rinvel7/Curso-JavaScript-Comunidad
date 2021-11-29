@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+         const linhas = this.responseText.split("\n");
+        text = "";
+        for (let i = 0; i < linhas.length; i++) {
+         const cels = linhas[i].split(",");
+         text = text + "<option value="+i+ ">"+ cels[1]+ "</option>"
+                  
+        } 
+    document.getElementById("list").innerHTML = "<form ><select> change='selecionar(this.value)'>" +text+"</select></form>"
+              
+    }
+    xhttp.open("GET", "https://raw.githubusercontent.com/lcbjrrr/quant/master/notas%20(2).csv");
+    xhttp.send();
+
+    function selecionar(valor) {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        const linhas = this.responseText.split("\n");
+        text = "";
+        for (let i = 0; i < linhas.length; i++) {
+            if(i==valor){
+            text = " " 
+            const cels = linhas[1].split(",");
+            text += "<br>Curso: " + cels[0];
+            text += "<br>AP1: " + cels[2];
+            text += "<br>AP2: " + cels[3];
+            text += "<br>AP3: " + cels[4];
+            text += "<br>NOTA: " + cels[5];
+            text += "<br>Conceito: " + cels[6];
+        }
+     
+    }
+        console.log(text)
+        document.getElementById("det").innerHTML = text
+    }
+          xhttp.open("GET", "https://raw.githubusercontent.com/lcbjrrr/quant/master/notas%20(2).csv");
+          xhttp.send();
+        }
+
+    </script>
+
+<div id="list"></div>
+
+<div id="det"></div>
+
+</body>
+</html>

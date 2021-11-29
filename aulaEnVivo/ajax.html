@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <html>
+<body>
+    <script>
+
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+              const linhas = this.responseText.split("\n");
+              text = "";
+              for (let i = 0; i < linhas.length; i++) {
+                  const cels = linhas[i].split(",");
+                  text = text + "<option value="+i+ ">"+ cels[1]+ "</option>"
+                  
+              } 
+              document.getElementById("list").innerHTML = "<form ><select> change='selecionar(this.value)'>" +text+"</select></form>"
+              
+            }
+            xhttp.open("GET", "https://raw.githubusercontent.com/lcbjrrr/quant/master/notas%20(2).csv");
+            xhttp.send();
+
+
+
+    </script>
+<div id="list">
+
+</div>
+
+<div id="det">
+
+</div>
+
+</body>
+</html>
+</body>
+</html>

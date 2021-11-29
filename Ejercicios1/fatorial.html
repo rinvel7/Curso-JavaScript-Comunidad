@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+//Faça um programa que calcule o fatorial de um número inteiro fornecido pelo usuário. Ex.: 5!=5.4.3.2.1=120
+
+/*const factorial = (numero = undefined) =>{
+    if(numero === undefined) return console.warn("No ingresaste un numero");
+
+    if(typeof numero!== "number") return console.error(`El valor "${numero}" ingresado, NO es un numero`);
+
+    if (numero === 0) return console.error("El numero no puede ser 0");
+
+    if (Math.sign(numero)=== -1) return console.error("El numero no puede ser negativo");
+
+    let factorial = 1;
+
+    for(let i= numero; i > 1; i--){
+        factorial *=i;
+    }
+    return console.info(`El factorial de ${numero} es ${factorial}`);
+}
+    factorial(5);*/
+    
+    const factorial=(n=0)=>
+    (typeof(n)!="number")
+    ?"Ingrese un número válido"
+    :(n<0)
+    ?"Ingrese un número positivo"
+    :(n==0)
+    ?1
+    :n*factorial(n-1)
+
+    console.log(factorial(5));
+
+
+
+    </script>
+</body>
+</html>
+
